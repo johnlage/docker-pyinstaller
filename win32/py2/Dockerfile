@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 ARG WINE_VERSION=winehq-devel
 ARG PYTHON_VERSION=2.7.12
-ARG PYINSTALLER_VERSION=3.3
+ARG PYINSTALLER_VERSION=3.4
 
 # we need wine for this all to work, so we'll use the PPA
 RUN set -x \
@@ -55,8 +55,3 @@ RUN mkdir /src/ && ln -s /src /wine/drive_c/src
 VOLUME /src/
 WORKDIR /wine/drive_c/src/
 RUN mkdir -p /wine/drive_c/tmp
-
-COPY entrypoint.sh /entrypoint.sh
-RUN chmod +x /entrypoint.sh
-
-ENTRYPOINT ["/entrypoint.sh"]
